@@ -1,6 +1,6 @@
-const sqlite3 = require('sqlite3');
+const sqlite3 = require("sqlite3");
 
-const db = new sqlite3.Database('database.db');
+const db = new sqlite3.Database("database.db");
 
 db.run(`
   CREATE TABLE IF NOT EXISTS users (
@@ -13,5 +13,5 @@ db.run(`
 `);
 
 module.exports = {
-  db
-}
+  db,
+};

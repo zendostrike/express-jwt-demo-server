@@ -1,16 +1,16 @@
-const { secretKey } = require('./constants');
-const jwt = require('jsonwebtoken');
+const { secretKey } = require("./constants");
+const jwt = require("jsonwebtoken");
 
 function verifyToken(req, res, next) {
   const token = req.headers.authorization;
-  
+
   if (!token) {
-    return res.status(401).json({ error: 'Unauthorized: No token provided' });
+    return res.status(401).json({ error: "Unauthorized: No token provided" });
   }
-  
-  jwt.verify(token.split(' ')[1], secretKey, (err, decoded) => {
+
+  jwt.verify(token.split(" ")[1], secretKey, (err, decoded) => {
     if (err) {
-      return res.status(401).json({ error: 'Unauthorized: Invalid token' });
+      return res.status(401).json({ error: "Unauthorized: Invalid token" });
     }
 
     req.user = decoded;
@@ -19,5 +19,5 @@ function verifyToken(req, res, next) {
 }
 
 module.exports = {
-  verifyToken
-}
+  verifyToken,
+};
